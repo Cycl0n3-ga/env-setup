@@ -21,22 +21,27 @@ echo \
 
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+#Post-installation set-up without sudo
+groupadd docker
+usermod -aG docker $USER
+newgrp docker
 #=============================install docker 
 
 # Install Zsh and set it as default shell
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-chsh -s $(which zsh)
 
 #install ohmyzsh
 sh install.sh
+chsh -s $(which zsh)
 
 rm ~/.zshrc
-cp .zshrc ~/
+cp zshrc ~/.zshrc
 source ~/.zshrc
 
+bash
+zsh
+
 p10k configure
-#Post-installation set-up without sudo
-groupadd docker
-usermod -aG docker $USER
-newgrp docker
+
+
