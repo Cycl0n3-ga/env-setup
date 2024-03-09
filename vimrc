@@ -53,10 +53,6 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-call plug#begin('~/.vim/plugged')
-" Shorthand notation for plugin
-Plug 'Jorengarenar/COBOl.vim'
-call plug#end()
 
 
 

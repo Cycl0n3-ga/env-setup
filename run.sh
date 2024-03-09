@@ -3,10 +3,9 @@
 
 # Update package lists and install desired packages
 apt update
-apt install -y snap tmux neofetch htop vim curl powertop speedtest-cli
+apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli
 
 # Install Zsh and set it as default shell
-apt install zsh
 chsh -s $(which zsh)
 
 #install ohmyzsh
@@ -26,7 +25,8 @@ chmod a+r /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 #Post-installation set-up without sudo
