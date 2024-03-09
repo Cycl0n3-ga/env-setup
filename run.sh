@@ -40,6 +40,10 @@ systemctl enable containerd.service
 rm ~/.zshrc
 cp .zshrc ~/
 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+source ~/.zshrc
+
 # Copy .vimrc file
 rm ~/.vimrc
 cp vimrc ~/.vimrc
