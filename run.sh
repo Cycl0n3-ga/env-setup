@@ -3,22 +3,14 @@
 
 # Update package lists and install desired packages
 apt update
-apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget gcc iotop cron tree 
+apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget gcc iotop cron tree ca-certificates
 
-# Install Zsh and set it as default shell
-chsh -s $(which zsh)
+# Copy .vimrc file
+rm ~/.vimrc
+cp vimrc ~/.vimrc
 
-#install ohmyzsh
-
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-
-#install docker 
+#=============================install docker 
 # Add Docker's official GPG key:
-apt-get update
-apt-get install -y ca-certificates curl
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 chmod a+r /etc/apt/keyrings/docker.asc
@@ -36,17 +28,22 @@ newgrp docker
 #Set-up boot
 systemctl enable docker.service
 systemctl enable containerd.service
+#=============================install docker 
 
-rm ~/.zshrc
-cp .zshrc ~/
 
+
+# Install Zsh and set it as default shell
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+chsh -s $(which zsh)
+
+#install ohmyzsh
+sh install.sh
 
 source ~/.zshrc
 
-# Copy .vimrc file
-rm ~/.vimrc
-cp vimrc ~/.vimrc
+rm ~/.zshrc
+cp .zshrc ~/
 p10k configure
 
 
