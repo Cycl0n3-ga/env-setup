@@ -25,12 +25,9 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin do
 groupadd docker
 usermod -aG docker $USER
 newgrp docker
-#Set-up boot
-systemctl enable docker.service
-systemctl enable containerd.service
 #=============================install docker 
 
-
+exit
 
 # Install Zsh and set it as default shell
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -40,10 +37,8 @@ chsh -s $(which zsh)
 #install ohmyzsh
 sh install.sh
 
-source ~/.zshrc
-
 rm ~/.zshrc
 cp .zshrc ~/
+source ~/.zshrc
+
 p10k configure
-
-
