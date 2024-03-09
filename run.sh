@@ -21,13 +21,7 @@ echo \
 
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-#Post-installation set-up without sudo
-groupadd docker
-usermod -aG docker $USER
-newgrp docker
 #=============================install docker 
-
-exit
 
 # Install Zsh and set it as default shell
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -42,3 +36,7 @@ cp .zshrc ~/
 source ~/.zshrc
 
 p10k configure
+#Post-installation set-up without sudo
+groupadd docker
+usermod -aG docker $USER
+newgrp docker
