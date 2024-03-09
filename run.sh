@@ -16,7 +16,7 @@ sh get-docker.sh
 
 # Install Zsh and set it as default shell
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+sh run.shgit clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 #install ohmyzsh
 sh install.sh
@@ -24,10 +24,8 @@ chsh -s $(which zsh)
 
 rm ~/.zshrc
 cp zshrc ~/.zshrc
-source ~/.zshrc
-
-bash
 zsh
+source ~/.zshrc
 
 p10k configure
 
