@@ -3,7 +3,7 @@
 
 # Update package lists and install desired packages
 apt update
-apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli
+apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget gcc iotop cron tree 
 
 # Install Zsh and set it as default shell
 chsh -s $(which zsh)
@@ -37,9 +37,11 @@ newgrp docker
 systemctl enable docker.service
 systemctl enable containerd.service
 
+rm ~/.zshrc
 cp .zshrc ~/
 
 # Copy .vimrc file
+rm ~/.vimrc
 cp vimrc ~/.vimrc
 p10k configure
 
