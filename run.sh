@@ -9,6 +9,13 @@ apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget 
 rm ~/.vimrc
 cp vimrc ~/.vimrc
 
+
+#=============================install Nodejs & npm
+curl -fsSL https://deb.nodesource.com/setup_21.x | bash - &&\
+apt-get install -y nodejs npm #How about yarn
+#=============================install Nodejs & npm
+
+
 #=============================install docker 
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
