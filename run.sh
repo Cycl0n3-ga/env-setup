@@ -3,7 +3,7 @@
 
 # Update package lists and install desired packages
 apt update
-apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget gcc iotop cron tree ca-certificates net-tools
+apt install -y snap zsh tmux neofetch htop vim curl powertop speedtest-cli wget gcc iotop cron tree ca-certificates net-tools pipenv
 
 # Copy .vimrc file
 rm ~/.vimrc
